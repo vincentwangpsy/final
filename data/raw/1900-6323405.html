@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en" itemscope id="" class="no-js no-touch ">
+
+<head><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"Vg8OUFFACgYBUVZQDw=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),s.on(m,function(){this.bstStart=Date.now()}),s.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(17)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;c<s;c++)a[c].apply(i,r);var u=f[w[n]];return u&&u.push([v,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",w[n]=e,e in f||(f[e]=[])})}var m={},w={},v={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return v}function i(){return new r}var a="nr@context",s=t("gos"),c=t(15),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!g++){var t=y.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(w,function(e,n){t[e]||(t[e]=n)});var n="https"===m.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(15),f=window,u=f.document,d="addEventListener",l="attachEvent",p=f.XMLHttpRequest,h=p&&p.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:p,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var m=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-974.min.js"},v=p&&h&&h[d]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:m,features:{},xhrWrappable:v};u[d]?(u[d]("DOMContentLoaded",i,!1),f[d]("load",r,!1)):(u[l]("onreadystatechange",o),f[l]("onload",r)),s("mark",["firstbyte",a()],null,"api");var g=0},{}]},{},["loader",2,10,4,3]);</script>
+  
+  <title>Solatorobo: Red the Hunter Review - GameSpot</title>
+
+  <meta name="description" content="It may not offer much of a challenge, but Solatorobo: Red the Hunter has enough variety and quirky charm to stand out from other action RPGs.">
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="application-name" content="GameSpot"/>
+  <meta name="msapplication-TileColor" content="#26292B"/>
+  <meta name="msapplication-TileImage" content="http://static3.gamespot.com/bundles/gamespotsite/images//win8pin.png"/>
+
+  
+  
+    <meta name="userAuthState" content="noUser"/>
+
+            <meta name="modal-cdn-url" content="http://static.gamespot.com/js/modals.json">
+      
+    <meta name='js-sort-filter-text' content='yes'>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+    <meta itemprop="cdnHost" content="http://static.gamespot.com">
+      <link rel="shortcut icon" href="/favicon.ico" />
+
+    <link rel="apple-touch-icon" href="http://static3.gamespot.com/bundles/gamespotsite/images/touch-icon-iphone-precomposed.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="http://static3.gamespot.com/bundles/gamespotsite/images/touch-icon-ipad.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="http://static3.gamespot.com/bundles/gamespotsite/images/touch-icon-iphone-retina-precomposed.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="http://static3.gamespot.com/bundles/gamespotsite/images/touch-icon-ipad-retina-precomposed.png">
+
+  
+      <meta id="view-guid-meta" name="view-guid-meta" itemprop="view-guid" content="">
+
+
+                
+              
+    
+        
+    
+    <meta id="ad-settings" class="js-post-render-tracking-consumer ad-settings" itemprop="ad-settings" content="{&quot;service&quot;:&quot;dart&quot;,&quot;client&quot;:&quot;xfp&quot;,&quot;deferred&quot;:true,&quot;load_in_head&quot;:&quot;gpt&quot;,&quot;single_request&quot;:true,&quot;disable_initial_load&quot;:true,&quot;enable_callback&quot;:true,&quot;enable_collapse_empty_divs&quot;:true,&quot;enable_guilt&quot;:true,&quot;script&quot;:&quot;\/\/www.googletagservices.com\/tag\/js\/gpt.js&quot;,&quot;unit_name&quot;:&quot;\/8264\/aw-gamespot\/gamespace&quot;,&quot;target_params&quot;:{&quot;session&quot;:&quot;g&quot;,&quot;test&quot;:&quot;{abTestLabelDart}&quot;,&quot;ptype&quot;:&quot;games_review&quot;,&quot;cid&quot;:&quot;gs-1900-6323405&quot;,&quot;game&quot;:&quot;solatorobo-red-the-hunter&quot;,&quot;rating&quot;:&quot;ACB: G&quot;,&quot;genre&quot;:[&quot;action&quot;,&quot;role-playing&quot;],&quot;con&quot;:[&quot;ds&quot;],&quot;publisher&quot;:[&quot;bandai-namco-games&quot;,&quot;namco-bandai-games&quot;,&quot;xseed-games&quot;],&quot;rdate&quot;:&quot;bp52&quot;,&quot;score&quot;:75,&quot;user&quot;:&quot;anon&quot;},&quot;slot_order&quot;:[&quot;leader_top&quot;,&quot;leader_plus_top&quot;,&quot;mpu_top&quot;,&quot;mpu_plus_top&quot;,&quot;skin_top&quot;,&quot;omnibar_top&quot;,&quot;nav_logo_top&quot;,&quot;logo_top&quot;,&quot;interstitial&quot;,&quot;native-top&quot;,&quot;incontent-ad&quot;,&quot;mpu_bottom&quot;,&quot;leader_bottom&quot;,&quot;companion_ad&quot;,&quot;ytembed_top&quot;,&quot;overlay_leader_top&quot;,&quot;overlay_mpu_top&quot;],&quot;mapped_units&quot;:{&quot;interstitial&quot;:{&quot;outOfPage&quot;:true},&quot;skin_top&quot;:{&quot;size&quot;:[[1600,1000]],&quot;target&quot;:{&quot;pos&quot;:&quot;top&quot;}},&quot;leader_top&quot;:{&quot;size&quot;:[[970,66],[728,90]],&quot;target&quot;:{&quot;pos&quot;:&quot;top&quot;}},&quot;incontent-ad&quot;:{&quot;size&quot;:[[321,31],[11,11]],&quot;target&quot;:{&quot;pos&quot;:&quot;top&quot;,&quot;strnativekey&quot;:&quot;wht2J3jeQyvCupX61JvMZoej&quot;}},&quot;native-top&quot;:{&quot;size&quot;:[[11,11]],&quot;target&quot;:{&quot;pos&quot;:&quot;top&quot;,&quot;strnativekey&quot;:&quot;wht2J3jeQyvCupX61JvMZoej&quot;}},&quot;mpu_top&quot;:{&quot;size&quot;:[[300,250]],&quot;target&quot;:{&quot;pos&quot;:&quot;top&quot;}},&quot;mpu_bottom&quot;:{&quot;size&quot;:[[300,250]],&quot;target&quot;:{&quot;pos&quot;:&quot;bottom&quot;}},&quot;leader_bottom&quot;:{&quot;size&quot;:[[728,90],[970,66]],&quot;target&quot;:{&quot;pos&quot;:&quot;bottom&quot;}},&quot;companion_ad&quot;:{&quot;size&quot;:[[1,1]]},&quot;leader_plus_top&quot;:{&quot;size&quot;:[[970,66],[728,90],[970,90],[970,250]],&quot;target&quot;:{&quot;pos&quot;:&quot;top&quot;}}},&quot;region&quot;:&quot;us&quot;}">
+
+    
+                                  <meta id="qualtrics-settings"
+      itemprop="qualtrics-settings"
+      content="{&quot;id&quot;:&quot;ZN_aah4Vz47v491vLf&quot;,&quot;script&quot;:&quot;\/\/zn_aah4vz47v491vlf-cbs.siteintercept.qualtrics.com\/WRSiteInterceptEngine\/&quot;}" />
+        
+    <meta name="username" id="username" content="GS|Anonymous" />
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GameSpot">
+      <meta name="twitter:creator" content="@GameSpot">
+  
+  		<meta property="og:image" content="http://static1.gamespot.com/uploads/screen_kubrick/469/4693985/2305502-default-art--kubrick.jpg"/>
+	
+        	<meta property="og:title" content="Solatorobo Review"/>
+  	        <meta property="og:description" content="It may not offer much of a challenge, but Solatorobo: Red the Hunter has enough variety and quirky charm to stand out from other action RPGs."/>
+      
+  <meta property="og:site_name" content="GameSpot"/>
+
+      <meta property="og:type" content="article"/>
+  
+
+      <meta property="og:url" content="http://www.gamespot.com/reviews/solatorobo-review/1900-6323405/"/>
+        <link rel="canonical" href="http://www.gamespot.com/reviews/solatorobo-review/1900-6323405/" />
+  
+
+                            <meta id="ZeroClipBoardSwf" itemprop="ZeroClipBoardSwf" name="ZeroClipBoardSwf" content="/bundles/phoenixsite/js/libs/zeroclipboard/ZeroClipboard.swf?c107fbced7a0a58e77ae50d37bc9497d">
+      <meta content="It may not offer much of a challenge, but Solatorobo: Red the Hunter has enough variety and quirky charm to stand out from other action RPGs."/>
+        <script src="http://static2.gamespot.com/js/compiled/header_js.js?c107fbced7a0a58e77ae50d37bc9497d" type="text/javascript"></script>
+  
+                <meta id="richTextEditorTheme" itemprop="richTextEditorTheme" content="white" data-themes="{&quot;white&quot;:&quot;http:\/\/static1.gamespot.com\/bundles\/gamespotsite\/css\/wysiwyg_white-864b71411c34e85031ebb5417b02d2e4.css&quot;,&quot;black&quot;:&quot;http:\/\/static3.gamespot.com\/bundles\/gamespotsite\/css\/wysiwyg_black-864b71411c34e85031ebb5417b02d2e4.css&quot;}">
+
+          
+            <!--[if !IE]> --><link id="skin-color" rel="stylesheet" href="http://static2.gamespot.com/bundles/gamespotsite/css/gamespot_white-864b71411c34e85031ebb5417b02d2e4.css"><!-- <![endif]--><!--[if IE]><link id="skin-color-0" rel="stylesheet" href="http://static3.gamespot.com/bundles/gamespotsite/css/gamespot_white_split1-864b71411c34e85031ebb5417b02d2e4.css"><link id="skin-color-1" rel="stylesheet" href="http://static5.gamespot.com/bundles/gamespotsite/css/gamespot_white_split2-864b71411c34e85031ebb5417b02d2e4.css"><![endif]-->
+  
+                <script src='//cdn.goroost.com/roostjs/dk8jewc95b7mbevk9q529rg34poipdv9' async></script>
+      
+    <meta id="kCode" itemprop="kCode" name="kCode" content="/contra-1987/cheats/">
+
+                  <script src="//js-sec.indexww.com/ht/ls-gamespot.js" async></script>
+                      <script type="text/javascript" charset="utf-8">
+        (function(G,o,O,g,L,e){G[g]=G[g]||function(){(G[g]['q']=G[g]['q']||[]).push(
+        arguments)},G[g]['t']=1*new Date;L=o.createElement(O),e=o.getElementsByTagName(
+        O)[0];L.async=1;L.src='//www.google.com/adsense/search/async-ads.js';
+        e.parentNode.insertBefore(L,e)})(window,document,'script','_googCsa');
+      </script>        <script type="text/javascript">
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function () {
+          var gads = document.createElement("script");
+          gads.async = true;
+          gads.id = "ad-service-client";
+          gads.className = "js-spof";
+          gads.type = "text/javascript";
+                    gads.setAttribute('onerror',"this.setAttribute('data-is-spof','true')");
+          gads.src = "//www.googletagservices.com/tag/js/gpt.js";
+          var node = document.getElementsByTagName("script")[0];
+          node.parentNode.insertBefore(gads, node);
+                  })();
+      </script>    
+      
+              <style>
+
+/*
+Added By: Will
+Description: Ads gamestop logo to preorder buttons, we sold it without supporting that feature...
+Remove: After the preorder campaign is done 11/30/16
+*/
+.buy-offer__body .pushAsset-buyButton__actionText {
+   margin-bottom: 30px;
+}
+.buy-offer--pushAsset .buy-offer__body:after {
+    content: url('http://static5.gamespot.com/uploads/original/1551/15514331/3145218-gamestop_button.png');
+    padding-top: 18px;
+    background-color: white;
+}
+
+
+/* Hide the feedback button temporarily - Lark 4/22/16 */
+#qualtrics-feedback {
+  display: none;
+}
+
+body.skin-yes { overflow-x: hidden; display: block !important; }
+/* Temporary last minute on Friday fix for headers being cut off on smaller screens */
+@media only screen and (max-width: 1209px) {
+  .pod-title>h4,
+  .pod-title>h4>h4 {
+    font-size: 15px;
+    padding-right: 5px;
+  }
+}
+h4 { font-size: 1.28571rem; line-height: 1.62857rem; }
+@media only screen and (min-width: 1210px) {
+h4 { font-size: 1.28571rem; line-height: 1.72857rem; }
+}
+
+/* This is a weird one but it cuts off the 3rd game href */
+.pod--topgames.pod-filter .filter-results { position: static; }
+
+/* GROSS fix for chat ad problem */
+.has-ads .s-chat #wrapper {
+top: 90px;
+}
+
+/* fix for FF not liking width on table-cell */
+.pod-popular .media--small .media-img { width: inherit; }
+
+/* fixes custom html 5 video embeds bleeding outside container */
+[data-embed-type="html"] video { max-width: 100%; }
+
+/* Safari alignment fix */
+.no-flexbox .masthead .eyebrow-promo { display:table-cell; vertical-align:middle; width: 54px; }
+
+/* PC Chrome button whitespace fix */
+.btn,
+.fyre-button-left-inner-box { white-space: nowrap; }
+
+.pod-filter .filter-results.grid { overflow: hidden; }
+#incontent_top iframe { display:none; }
+.av-report-suck { display: none !important; }
+.content-type.content-type--review { box-shadow: none; background: none; }
+
+/* Removing at the moment because of a visual bug on prod, this will need to be reevaluated */
+.skin-yes.money-rainbows #mantle_skin:before {
+display: none;
+}
+
+/* For seamless, larger images that are broken into parts. Keep this for now! -DA */
+#infographic figure,
+#infographic p {
+    margin-bottom: 0;
+}
+
+/* Clear native ads */
+.media--sponsored {
+    clear: both;
+}
+
+/* Top Leader misaligned. Going to investigate why | DA | 1/12/2015 */
+.ad-wrap.ad-wrap-leader_plus_top > div > div > div {
+  margin: 0 auto;
+}
+
+/* !LAST-MINUTE - 3/1/2016 - DA
+    Persisting issue with incorrect logo size on mobile */
+@media only screen and (max-width: 759px) {
+  .logo-site--full {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+.has-vid-countdown > .av-video-player-bg > .av-video-title {display: none !important; }
+
+</style>      
+    <meta name='pageType' data-type='review' data-id='6323405'/>
+
+            <script type="text/javascript">
+        //---------------------------------------------------------
+        // Boomtrain glue
+        !function(){function a(a){return function(){var b=Array.prototype.slice.call(arguments);return b.unshift(a),window._bt.push(b),window._bt}}window._bt=window._bt||[];for(var b=["track","identify","initialize","clear","setBsin","person.set"],c=0;c<b.length;c++){var d=window._bt,e=b[c].split("."),f=e[0],g=f;2===e.length&&(d[f]=d[f]||{},d=d[f],f=e[1],g=b[c]),d[f]=a(g)}if(!document.getElementById("analyticstrain-js")){var h=document.createElement("script");h.type="text/javascript",h.id="analyticstrain-js",h.async=!0,h.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.boomtrain.com/analyticstrain-2.min.js";var i=document.getElementsByTagName("script")[0];i.parentNode.insertBefore(h,i)}}();
+        _bt.initialize("0eddb34d4eb4be1df2b4160ec047aa73");
+        //---------------------------------------------------------
+      </script>
+      
+    
+</head>
+
+
+<body id="default-body" class="default has-nav-slim body-review skin-no col-2-template " style="display: block !important" >
+            <section id="message-block" class="message-success" style="display: none">
+                      </section>
+    
+    <div id="site-main">
+
+      
+      
+              <!-- Mast Head --><header id="masthead" role="banner" class="masthead js-show-scroll-dir is-nav-fixed"><div id="goroostcom-bell"></div><div class="container masthead-container masthead-container--flex masthead-container--cushion"><div id="masthead-logo" class="masthead-logo nav-mobile__logo"><a href=http://www.gamespot.com/ data-click-track-id=phoenixsitebundleCoreBaseFrontDoor  class="logo-site"><span class="logo-site--full"></span>GameSpot
+        </a></div><span class="eyebrow-promo eyebrow-promo--hub"><a href=http://www.gamespot.com/pax-aus/ data-click-track-id=promosHeaderpromoRedirect ><img src="http://static2.gamespot.com/uploads/ignore_jpg_scale_tiny/536/5360430/3151902-pax-aus-nav-bug.png" alt="" /></a></span><a id="js-btn-mobile-nav" class="nav-mobile__menu btn-mobile btn-mobile-nav"><i><svg class="symbol symbol-reorder symbol--color-link" title="Reveal" aria-role="icon"><use xlink:href="#symbol-reorder"></use></svg></i> Menu</a><nav role="navigation" class="masthead-nav masthead-nav--platforms"><ul class="nav-bar"><li class="nav-bar__item"><a href=/pc/ data-click-track-id=eyebrow-platform-pc onclick=s_objectID='eyebrow-pc';>PC</a></li><li class="nav-bar__item"><a href=/ps4/ data-click-track-id=eyebrow-platform-ps4 onclick=s_objectID='eyebrow-ps4';>PS4</a></li><li class="nav-bar__item"><a href=/xbox-one/ data-click-track-id=eyebrow-platform-xbox-one onclick=s_objectID='eyebrow-xbone';>Xbox One</a></li><li class="nav-bar__item"><a href=/wii-u/ data-click-track-id=eyebrow-platform-wii-u onclick=s_objectID='eyebrow-wiiu';>Wii U</a></li><li class="nav-bar__item nav-bar__item--platforms dropnav menu-hover js-dropnav"><a href="#" title="Open More Platforms Menu" >More <i><svg class="symbol symbol-caret-down symbol--color-link symbol--size-rem hide-mobile" aria-role="icon"><use xlink:href="#symbol-caret-down"></use></svg></i></a><ul class="dropnav-menu menu--small menu--arrow-top menu--has-borderRadius js-dropnav-active"><li class="dropnav-menu__item"><a href=/ps3/ data-click-track-id=eyebrow-platform-ps3 onclick=s_objectID='eyebrow-ps3';>PS3</a></li><li class="dropnav-menu__item"><a href=/vita/ data-click-track-id=eyebrow-platform-vita onclick=s_objectID='eyebrow-vita';>Vita</a></li><li class="dropnav-menu__item"><a href=/xbox-360/ data-click-track-id=eyebrow-platform-xbox-360 onclick=s_objectID='eyebrow-xbox360';>Xbox 360</a></li><li class="dropnav-menu__item"><a href=/3ds/ data-click-track-id=eyebrow-platform-3ds onclick=s_objectID='eyebrow-3ds';>3DS</a></li></ul></li></ul></nav><nav role="navigation" class="masthead-nav masthead-nav--main"><ul class="nav-bar"><li class="nav-bar__item"><a href=http://www.gamespot.com/reviews/ data-click-track-id=phoenixsitebundleCoreBaseReviewsList >Reviews</a></li><li class="nav-bar__item"><a href=http://www.gamespot.com/news/ data-click-track-id=phoenixsitebundleCoreBaseNewsHub >News</a></li><li class="nav-bar__item"><a href=http://www.gamespot.com/entertainment/ data-click-track-id=phoenixsitebundleCoreBaseEntertainmentDoor >Entertainment</a></li><li class="nav-bar__item dropnav menu-hover js-dropnav"><a href=http://www.gamespot.com/videos/ data-click-track-id=phoenixsitebundleCoreBaseVideosList  title="Videos Menu Opened" >Videos <i><svg class="symbol symbol-caret-down symbol--color-link symbol--size-rem hide-mobile" aria-role="icon"><use xlink:href="#symbol-caret-down"></use></svg></i></a><span class="nav-bar__box js-dropnav-toggle"><i><svg class="symbol symbol-caret-down symbol--color-link symbol--size-rem" title="Open Videos Menu" aria-role="icon"><a  title="Open Videos Menu" href="#"><use xlink:href="#symbol-caret-down"></use></a></svg></i></span><ul id="header-video-dropnav" class="dropnav-menu menu--medium menu--arrow-top menu--has-borderRadius dropnav-video js-dropnav-active"><li class="dropnav-menu__item"><a href=http://www.gamespot.com/videos/ data-click-track-id=coreHeaderVideosList ><span class="dropnav-list__img"><i><svg class="symbol symbol-youtube-play symbol--color-link symbol--size-large" aria-role="icon"><use xlink:href="#symbol-youtube-play"></use></svg></i></span>All Videos
+    </a></li><li class="dropnav-menu__item"><a href=http://www.gamespot.com/videos/trailers/ data-click-track-id=coreHeaderVideoTrailers ><span class="dropnav-list__img"><i><svg class="symbol symbol-ticket symbol--color-link symbol--size-large" aria-role="icon"><use xlink:href="#symbol-ticket"></use></svg></i></span>Trailers</a></li><li class="dropnav-menu__item dropnav-menu__item--break">-----</li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/battlefield-academy/ data-click-track-id=coreHeader/dropdownvideosVideoShow ><div class="img"><img src="http://static3.gamespot.com/uploads/square_mini/328/3284688/3129707-avatar+%281%29.jpg" alt="Battlefield Academy" class="dropnav-submenu__image" /></div>          Battlefield Academy
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/gsnews/ data-click-track-id=coreHeader/dropdownvideosVideoShow1 ><div class="img"><img src="http://static4.gamespot.com/uploads/square_mini/1551/15514330/2998255-news_logo.jpg" alt="GameSpot News" class="dropnav-submenu__image" /></div>          GameSpot News
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/the-lobby/ data-click-track-id=coreHeader/dropdownvideosVideoShow2 ><div class="img"><img src="http://static3.gamespot.com/uploads/square_mini/104/1049837/3003963-thjelobby-2016-avatar.jpg" alt="The Lobby" class="dropnav-submenu__image" /></div>          The Lobby
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/New_Releases/ data-click-track-id=coreHeader/dropdownvideosVideoShow3 ><div class="img"><img src="http://static2.gamespot.com/uploads/square_mini/104/1049837/2961853-new_releases2015-avatar.jpg" alt="New Releases" class="dropnav-submenu__image" /></div>          New Releases
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/screenplay/ data-click-track-id=coreHeader/dropdownvideosVideoShow4 ><div class="img"><img src="http://static4.gamespot.com/uploads/square_mini/1365/13658182/3135164-avatar.jpg" alt="Screen/Play" class="dropnav-submenu__image" /></div>          Screen/Play
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/now-playing/ data-click-track-id=coreHeader/dropdownvideosVideoShow5 ><div class="img"><img src="http://static5.gamespot.com/uploads/square_mini/1527/15277921/2787010-nowplaying_avatar.jpg" alt="Now Playing" class="dropnav-submenu__image" /></div>          Now Playing
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/lets-play/ data-click-track-id=coreHeader/dropdownvideosVideoShow6 ><div class="img"><img src="http://static2.gamespot.com/uploads/square_mini/1365/13658182/3142527-avatar.jpg" alt="Let&#039;s Play" class="dropnav-submenu__image" /></div>          Let&#039;s Play
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/reality-check/ data-click-track-id=coreHeader/dropdownvideosVideoShow7 ><div class="img"><img src="http://static2.gamespot.com/uploads/square_mini/1527/15277921/2798390-realitycheck_avatar.jpg" alt="Reality Check" class="dropnav-submenu__image" /></div>          Reality Check
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/in-2-minutes/ data-click-track-id=coreHeader/dropdownvideosVideoShow8 ><div class="img"><img src="http://static1.gamespot.com/uploads/square_mini/328/3284688/2716158-avatar.jpg" alt="In 2 Minutes" class="dropnav-submenu__image" /></div>          In 2 Minutes
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/the-gist/ data-click-track-id=coreHeader/dropdownvideosVideoShow9 ><div class="img"><img src="http://static1.gamespot.com/uploads/square_mini/469/4693985/2589700-gist.jpg" alt="The Gist" class="dropnav-submenu__image" /></div>          The Gist
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/the-point/ data-click-track-id=coreHeader/dropdownvideosVideoShow10 ><div class="img"><img src="http://static5.gamespot.com/uploads/square_mini/469/4693985/2589571-point.jpg" alt="The Point" class="dropnav-submenu__image" /></div>          The Point
+        </a></li><li class="dropnav-menu__item dropnav-submenu__item--shows"><a href=http://www.gamespot.com/shows/quick-look/ data-click-track-id=coreHeader/dropdownvideosVideoShow11 ><div class="img"><img src="http://static4.gamespot.com/uploads/square_mini/86/864739/2787991-avatar-nolabel_gbquicklook_show_jb.jpg" alt="Quick Look" class="dropnav-submenu__image" /></div>          Quick Look
+        </a></li></ul></li><li class="nav-bar__item dropnav menu-hover js-dropnav"><a href=http://www.gamespot.com/forums/ data-click-track-id=phoenixsitebundleCoreBaseForumLatestTopicList  title="Forums Menu Opened" >Forums <i><svg class="symbol symbol-caret-down symbol--color-link symbol--size-rem hide-mobile" aria-role="icon"><use xlink:href="#symbol-caret-down"></use></svg></i></a><span class="nav-bar__box js-dropnav-toggle"><i><svg class="symbol symbol-caret-down symbol--color-link symbol--size-rem" title="Open Forums Menu" aria-role="icon"><a  title="Open Forums Menu" href="#"><use xlink:href="#symbol-caret-down"></use></a></svg></i></span><ul class="dropnav-menu menu--medium menu--arrow-top menu--has-borderRadius js-dropnav-active" data-direction="left"><li class="dropnav-menu__item"><a href=http://www.gamespot.com/forums/games-discussion-1000000/ data-click-track-id=coreHeaderForumTopicList1 onclick=s_objectID='nav-community-nintendo';>Games Discussion</a></li><li class="dropnav-menu__item"><a href=http://www.gamespot.com/forums/pc-mac-linux-society-1000004/ data-click-track-id=coreHeaderForumTopicList2 onclick=s_objectID='nav-community-sony';>PC/Mac/Linux Society</a></li><li class="dropnav-menu__item"><a href=http://www.gamespot.com/forums/playstation-nation-1000002/ data-click-track-id=coreHeaderForumTopicList3 onclick=s_objectID='nav-community-microsoft';>PlayStation Nation</a></li><li class="dropnav-menu__item"><a href=http://www.gamespot.com/forums/xbox-association-1000003/ data-click-track-id=coreHeaderForumTopicList4 onclick=s_objectID='nav-community-pc';>Xbox Association</a></li><li class="dropnav-menu__item"><a href=http://www.gamespot.com/forums/nintendo-fan-club-1000001/ data-click-track-id=coreHeaderForumTopicList5 onclick=s_objectID='nav-community-mobile';>Nintendo Fan Club</a></li><li class="dropnav-menu__item"><a href=http://www.gamespot.com/forums/system-wars-314159282/ data-click-track-id=coreHeaderForumTopicList6 onclick=s_objectID='nav-community-bugreporting';>System Wars</a></li><li class="dropnav-menu__item"><a href=http://www.gamespot.com/forums/offtopic-discussion-314159273/ data-click-track-id=coreHeaderForumTopicList7 onclick=s_objectID='nav-community-offtopic';>Off-Topic Discussion</a></li><li class="dropnav-menu__item"><a href=http://www.gamespot.com/forums/gamespot-giveaways-909399116/ data-click-track-id=coreHeaderForumTopicList8 onclick=s_objectID='nav-community-systemwars';>GameSpot Giveaways</a></li><li class="dropnav-menu__item"><a href=http://www.gamespot.com/forums/bug-reporting-feedback-1000006/ data-click-track-id=coreHeaderForumTopicList9 onclick=s_objectID='nav-community-sports';>Bug Reporting & Feedback</a></li><li class="dropnav-menu__item"><a href=http://www.gamespot.com/forums/ data-click-track-id=coreHeaderForumLatestTopicList onclick=s_objectID='nav-community';>See all Forums</a></li></ul></li></ul></nav><ul class="switch skin-switch"><li id="skin-switch" class="switch__item" data-default="gamespot_white"><a href=# data-click-track-id=eyebrow-skin-white  rel="gamespot_white" data-rel-url="http://static2.gamespot.com/bundles/gamespotsite/css/gamespot_white-864b71411c34e85031ebb5417b02d2e4.css" class="skin-switch-btn white switch__btn">A</a><a href=# data-click-track-id=eyebrow-skin-black  rel="gamespot_black" data-rel-url="http://static5.gamespot.com/bundles/gamespotsite/css/gamespot_black-864b71411c34e85031ebb5417b02d2e4.css" class="skin-switch-btn black switch__btn">A</a></li></ul><ul class="masthead-userBox pull-right nav-mobile__auth"><li class="masthead-userBox__item signup"><i><svg class="symbol symbol-rocket symbol--color-link symbol--effect-highlight--secondary hide-mobile" aria-role="icon"><use xlink:href="#symbol-rocket"></use></svg></i><a href=https://auth.gamespot.com/login/ data-click-track-id=coreHeaderLogin onclick=s_objectID='nav-login'; > Sign in</a> / <a href=https://auth.gamespot.com/signup/ data-click-track-id=coreHeaderSignUp onclick=s_objectID='bav-signup'; >Join</a></li></ul></div><div class="masthead-search-hold nav-mobile__search"><div class="container"><div class="span12"><form action="/search/" method="get" class="masthead-search search"><fieldset><span id="js-btn-mobile-search" class="search-symbol btn-mobile-search"><i><svg class="symbol symbol-search symbol--position-left-absolute symbol--position-flush symbol--size-2x symbol--size-resp--base symbol--color-link" title="Search GameSpot" aria-role="icon"><a  title="Search GameSpot" href="#"><use xlink:href="#symbol-search"></use></a></svg></i></span><input type="hidden" id="search-indice-game" name="indices[0]" value="game"/><input type="hidden" id="search-indice-hub" name="indices[1]" value="hub"/><input type="hidden" id="search-indice-videoshow" name="indices[2]" value="videoshow"/><input type="hidden" id="search-indice-platform" name="indices[3]" value="platform"/><input type="hidden" id="search-indice-franchise" name="indices[4]" value="franchise"/><input type="text" id="search-main" name="q" data-click-track-id=coreHeaderSearch-main 
+                                  placeholder="Search GameSpot"
+                              autocomplete="off" class="search-input ready" data-search-index="game" value="" /></fieldset></form></div></div><!-- /container --></div></header>
+
+      
+                          <div id="interstitial-wrap" class="js-mapped-ad mapped-ad mapped-interstitial mapped-interstitial-dart" ><div id="interstitial" class="ad-wrap ad-wrap-interstitial"></div></div>                <div id="site-wrapper"  itemscope itemtype="http://schema.org/Review">
+          <div id="kubrick-lead" class="kubrick kubrick-lead kubrick-lead--minimal kubrick-lead--has-subnav" style="background-image: url(http://static5.gamespot.com/uploads/screen_kubrick_wide/469/4693985/2305502-default-art--kubrick.jpg)">
+          <div class="kubrick-overlay">
+      <div class="kubrick-curtains">
+        <div class="kubrick-content container row"></div>
+          </div>
+      <div class="kubrick-curtains kubrick-curtains--bottom"></div>
+      </div>
+      </div>
+  <nav class="subnav subnav-mobile subnav--flex ">
+  <div class="container row">
+    <div class="span12">
+      <span class="subnav-toggle js-dropnav-toggle">
+        <a>
+          <i><svg class="symbol symbol-reorder" aria-role="icon"><use xlink:href="#symbol-reorder"></use></svg></i> Game Info
+        </a>
+      </span>
+      <ul class="subnav-list subnav-list-count-7">
+
+        <li class="subnav-list__item subnav-list__item-primary ">
+          <a href="/solatorobo-red-the-hunter/" >
+                          <img src="http://static5.gamespot.com/uploads/square_mini/mig/4/4/8/9/2224489-box_solatorobo.png" alt="Solatorobo: Red the Hunter"  />
+                        <span>Solatorobo: Red the Hunter</span>
+          </a>
+        </li>
+
+        <li class="subnav-list__item " >
+          <a href="/solatorobo-red-the-hunter/reviews/" >Reviews</a>
+        </li>
+
+        <li class="subnav-list__item ">
+          <a href="/solatorobo-red-the-hunter/news/" >News & Features</a>
+        </li>
+
+        <li class="subnav-list__item ">
+          <a href="/solatorobo-red-the-hunter/images/" >Images</a>
+        </li>
+
+        <li class="subnav-list__item ">
+          <a href="/solatorobo-red-the-hunter/videos/" >Videos</a>
+        </li>
+
+        
+        <li class="subnav-list__item "><a href="/solatorobo-red-the-hunter/forums/" >Forum </a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <div id="mantle_skin">
+    <div id="rbSkin">
+      <span id="adSkinLeft"></span>
+      <span id="adSkinRight"></span>
+                    <div id="skin_top-wrap" class="js-mapped-ad mapped-ad mapped-skin_top mapped-skin_top-dart" ><div id="skin_top" class="ad-wrap ad-wrap-skin_top"></div></div><div id="leader_top-wrap" class="js-mapped-ad mapped-ad mapped-leader_top mapped-leader_top-dart" ><div id="leader_top" class="ad-wrap ad-wrap-leader_top"></div></div>            <div id="wrapper">
+                                        <div id="site" role="main">
+    <div id="default-content" class=" container row">
+                  <div class="primary-content span8 ">
+                                    
+        
+    
+    <article class="content-body review-article article article--review article--two-column">
+
+        
+              <section class="news-hdr text-center has-pad--bottom--resp ellipseborder-bottom"><div class="news-section clearfix has-rhythm--resp"><section class="breadcrumbs"><ul class="breadcrumbs-container"><li><a href="/">GameSpot</a></li><li class="breadcrumbs-list__item"><a href="/solatorobo-red-the-hunter/">Solatorobo: Red the Hunter</a></li><li class="breadcrumbs-list__item"><a href="/solatorobo-red-the-hunter/reviews/">Reviews</a></li><li class="breadcrumbs-list__item">DS</li></ul></section><a href="#comments-block-32442990" class="comments" rel="nofollow"><i><svg class="symbol symbol-comments-alt" aria-role="icon"><use xlink:href="#symbol-comments-alt"></use></svg></i>  Comments</a></div><h1 class="news-title instapaper_title entry-title"><span itemprop="itemreviewed">Solatorobo</span> Review
+  </h1><h2 class="news-deck type--xlarge">It may not offer much of a challenge, but Solatorobo: Red the Hunter has enough variety and quirky charm to stand out from other action RPGs.</h2><h3 class="news-byline">by <a href="/profile/bravemanrunning/" rel="author">Sean Evans</a>
+                       on <time datetime="2011-07-13" pubdate="pubdate" itemprop="dtreviewed">July 13, 2011</time></h3><ul class="share " role="presentation"><li class="share-item share-item--facebook js-share-button-facebook" data-share-url="http://www.gamespot.com/reviews/solatorobo-review/1900-6323405/" data-guid="1900-6323405" role="presentation"><a class="js-event-tracking" class="js-event-tracking" data-event-tracking="Tracking|games_review|SocialShare|Facebook|1900-6323405" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.gamespot.com/reviews/solatorobo-review/1900-6323405/" title="Facebook"><span class="share-item__container"><i><svg class="symbol symbol-facebook symbol--color-white" aria-role="icon"><use xlink:href="#symbol-facebook"></use></svg></i></span></a></li><li class="share-item share-item--twitter js-share-button-twitter" data-share-url="http://www.gamespot.com/reviews/solatorobo-review/1900-6323405/" data-guid="1900-6323405" role="presentation"><a class="js-event-tracking" class="js-event-tracking" data-event-tracking="Tracking|games_review|SocialShare|Twitter|1900-6323405" target="_blank" href="https://twitter.com/intent/tweet?text=Solatorobo Review&related=&url=http://www.gamespot.com/reviews/solatorobo-review/1900-6323405/" title="Twitter"><span class="share-item__container"><i><svg class="symbol symbol-twitter symbol--color-white" aria-role="icon"><use xlink:href="#symbol-twitter"></use></svg></i></span></a></li><li class="share-item share-item--google js-share-button-gplus" data-guid="1900-6323405" role="presentation"><a class="js-event-tracking" data-event-tracking="Tracking|games_review|SocialShare|Google|1900-6323405" target="_blank" href="https://plus.google.com/share?utm_medium=share%2Bbutton&url=http://www.gamespot.com/reviews/solatorobo-review/1900-6323405/" title="Google Plus"><span class="share-item__container"><i><svg class="symbol symbol-google-plus symbol--color-white" aria-role="icon"><use xlink:href="#symbol-google-plus"></use></svg></i></span></a></li></ul></section>    
+        
+          
+              <section itemprop="description" class="article-body typography-format ">
+
+        <div class="js-content-entity-body">
+                    <p>  UK REVIEW--Given its origin, Solatorobo: Red the Hunter is long overdue. It's the spiritual successor to <a href="/" data-ref-id="0-2035" >Tail Concerto</a>, a PlayStation game that was released to little fanfare way back in the late '90s, and a lot of that game's key elements have been lifted over into the developer's latest offering. What this game lacks in challenge, it more than makes up for in charisma, thanks to a well-concocted mix of lighthearted subplots married to simple yet enjoyable combat, role-playing and puzzle mechanics.   </p><p>  <figure num="1" data-ref-id="1300-1744862" data-align="center" data-embed-type="image" data-size="large" data-resize-src="http://static.gamespot.com/uploads/original/gamespot/images/2011/193/1744862-991480_20110713_001.jpg" data-ratio="0.75"><a class="fluid-height" style="padding-bottom:75.0%" href="" data-ref-id="1300-1744862"><img alt="Yes, that is French signage next to a fox-man riding a mobile mech suit." src="http://static3.gamespot.com/uploads/original/gamespot/images/2011/193/1744862-991480_20110713_001.jpg" srcset="http://static3.gamespot.com/uploads/original/gamespot/images/2011/193/1744862-991480_20110713_001.jpg 320w" sizes="(max-width: 320px) 100vw, 320px" data-width="320"></a><figcaption>Yes, that is French signage next to a fox-man riding a mobile mech suit.</figcaption></figure>  </p><p>  Solatorobo puts you in the role of an anthropomorphic lead character who never serves any role other than to be the standard plucky hero. Red Savarin is a breed of leading (fox)man that treats all adversity with a typically forthright attitude, albeit in the most civil-minded manner possible. As an adventurous bounty hunter, his livelihood consists of darting around from one place to another in search of any quick and easy job he can get his paws on. Both the main game and the myriad side quests you encounter are threaded into this narrative conceit, as Red and his loyal sister, Chocolat, continually search for paid work both grand and menial atop each of the Shepherd Republic's floating islands. At first, the game introduces the pair as seemingly flawed if dedicated practitioners of their roaming craft, but this relatively interesting hook is quickly abandoned in favour of pulling all involved into typically catastrophic world events instead.  </p><p>  Whether bounding about on quests or merely journeying through towns, you spend the majority of time piloting a single-seater mech called the DAHAK. Nimble controls ensure that directing this midsized robotic beast is always an easy task, and it's a nicely animated piece of machinery to boot. The DAHAK's primary function is to lift and subsequently throw heavy objects, which you do ad nauseam for several overtly simplistic puzzle sections from beginning to end. These sections sometimes force you out of the mech to travel on foot and explore the game's small-scale dungeon areas, but you predominantly use the DAHAK's lifting and jumping abilities to open up new passageways until the level is complete. Unremarkable it may be, but the platforming and exploration still manages to be enjoyable in spite of its basic mechanics.  </p><p>  The DAHAK can also hold its own in a fight. Combat is only marginally more demanding than the puzzle solving, but is similarly routine in its execution. You use your mech to pick up and throw enemies in succession until their life bars deplete, periodically jumping to avoid attacks and dashing to flank larger foes from behind. Many of these larger mechs also require specific attack patterns to defeat, while smaller enemies are more agile and need to be eliminated quickly. You find upgrade modules hidden throughout the world that you can use to improve the DAHAK's abilities like movement speed and attack damage. Purchasing allocated slots and arranging your mech's parts to fit into a finite inventory space is a head-scratching puzzle all on its own, but the combat is so inherently easy that you probably won't spend too long worrying about it anyway. Even at its most frenzied (a term loosely applied here), the combat could be labeled most appropriately as something akin to My First Air Juggles--the action never demands too much of you.  </p><p>  <figure num="20" data-ref-id="1300-1744881" data-align="center" data-embed-type="image" data-size="large" data-resize-src="http://static.gamespot.com/uploads/original/gamespot/images/2011/193/1744881-991480_20110713_020.jpg" data-ratio="0.74921630094044"><a class="fluid-height" style="padding-bottom:74.9%" href="" data-ref-id="1300-1744881"><img alt=" Upgrading is a colourful process, but not a strictly necessary one." src="http://static5.gamespot.com/uploads/original/gamespot/images/2011/193/1744881-991480_20110713_020.jpg" srcset="http://static5.gamespot.com/uploads/original/gamespot/images/2011/193/1744881-991480_20110713_020.jpg 319w" sizes="(max-width: 319px) 100vw, 319px" data-width="319"></a><figcaption> Upgrading is a colourful process, but not a strictly necessary one.</figcaption></figure>  </p><p>  All the working systems are still fun to play regardless of their simplicity, and everything moves at such a steady pace that the experience is rarely boring. Serviceable minigames, such as racing and fishing, help to bolster the already expansive set of quests and inject a healthy dose of variety into the critical path; however, they probably won't inspire you to revisit them outside of compulsory story segments. There are also a fair number of collectibles for obsessive types to keep an eye out for, all of which are effectively tied together as minor quests with their own individual narrative attractions.  </p><p>  Because you're asked to take on side quests before the main story can progress, Solatorobo's structure relishes more in moments of quirky intrigue than taking itself too seriously. You encounter a host of oddly entertaining characters during quests, including a rotund photographer who's had his most prized photographs stolen and a conspiciously rugged female quest giver who harbours an awkward crush on poor old Red. Not all quests are winners, but there are many that feel right at home--you even become embroiled in a brief investigation at a friend's house at one point. Granted, the over-arching narrative does fall victim to overdramatising its plot, but the unique quest lines and random pockets of contextual storytelling are most amusing. Competent translation also helps to increase attachment to the game's characters and dialogue, although you're unlikely to find any one particular character involved in the narrative to be hugely memorable when all is said and done.  </p><p>  Each island boasts a wealth of sights to marvel at. Bright colours and great detail help punctuate the lush 2D backgrounds of towns and environments, adding a level of texture to surrounding locations that makes just running around a pleasant experience. Alongside the inclusion of unintrusive anime shorts and some pleasingly upbeat music throughout, Solatorobo adopts the hardware capabilities of the DS in some really effective ways.  </p><p>  Much of Solatorobo feels conventional and it doesn't quite reach the soaring heights it could have. But between its breezy gameplay and occasionally offbeat personality, it's a game that fully understands its simplicities and confidently turns them into its merits. As long as you can appreciate its leisurely nature for the protracted duration, you'll find a bounty that's absolutely worth hunting for in Solatorobo: Red the Hunter.   </p>
+                                    <div id="native-top-wrap" class="js-mapped-ad mapped-ad mapped-native-top mapped-native-top-dart" ><div id="native-top" class="ad-wrap ad-wrap-native-top"></div></div>          </div>
+
+        
+        
+  
+  
+              </section>
+    
+        
+    </article>
+
+    
+                                          </div>
+      <aside class="secondary-content span4 ">
+                    <div id="mpu_top-wrap" class="js-mapped-ad mapped-ad mapped-mpu_top mapped-mpu_top-dart" ><div id="mpu_top" class="ad-wrap ad-wrap-mpu_top"></div></div>                        
+       
+
+
+  <div class="pod pod-recirc pod-popular hide-mobile">
+
+                        
+<header class="pod-header ">
+  <div class="pod-header__item">
+    <div class="pod-title">
+      <h4>Latest News</h4>
+            <span class="pod-div" role="presentation" aria-hidden="true"></span>
+    </div>
+  </div>
+  </header>
+                
+              <div class="pod-recirc__content">
+                            
+                      
+              
+<article class="media media--small" data-guid="2300-6435693">
+  <a href="/videos/gs-news-top-5-fallout-4-mods-on-ps4-pokemon-go-sec/2300-6435693/" class="js-event-tracking" data-promo-id="12600" data-pinned="1" data-top-slot-allowed="1" data-event-tracking="Tracking|games_review|MoreFrom|1">
+    <div class="align-vertical--contain">
+      <figure class="media-figure align-vertical--child">
+        <div class="media-img">
+                      <img src="http://static3.gamespot.com/uploads/screen_tiny/1570/15709614/3156242-gsnews_top5november11_20161111.jpg" alt="GS News Top 5 - Fallout 4 Mods on PS4; Pokemon GO Secrets!?" />
+                  </div>
+      </figure>
+      <div class="media-body align-vertical--child">
+        
+        <h3 class="media-title">GS News Top 5 - Fallout 4 Mods on PS4; Pokemon GO Secrets!?</h3>
+      </div>
+    </div>
+  </a>
+</article>
+                                      
+                      
+              
+<article class="media media--small" data-guid="1100-6445361">
+  <a href="/articles/where-to-buy-an-nes-classic-edition-gamestop-best-/1100-6445361/" class="js-event-tracking" data-promo-id="12597" data-pinned="1" data-top-slot-allowed="1" data-event-tracking="Tracking|games_review|MoreFrom|2">
+    <div class="align-vertical--contain">
+      <figure class="media-figure align-vertical--child">
+        <div class="media-img">
+                      <img src="http://static5.gamespot.com/uploads/screen_tiny/123/1239113/3156393-nes.jpg" alt="Where to Buy an NES Classic Edition--GameStop, Best Buy, Amazon, Walmart, and More" />
+                  </div>
+      </figure>
+      <div class="media-body align-vertical--child">
+        
+        <h3 class="media-title">Where to Buy an NES Classic Edition--GameStop, Best Buy, Amazon, Walmart, and More</h3>
+      </div>
+    </div>
+  </a>
+</article>
+                                      
+                      
+              
+<article class="media media--small" data-guid="1100-6445364">
+  <a href="/articles/dishonored-2s-pc-framerate-mouse-issues-will-be-ad/1100-6445364/" class="js-event-tracking" data-promo-id="12595" data-pinned="1" data-top-slot-allowed="1" data-event-tracking="Tracking|games_review|MoreFrom|3">
+    <div class="align-vertical--contain">
+      <figure class="media-figure align-vertical--child">
+        <div class="media-img">
+                      <img src="http://static1.gamespot.com/uploads/screen_tiny/123/1239113/3156441-d2.jpg" alt="Dishonored 2&#039;s PC Framerate, Mouse Issues Will Be Addressed in a Patch Soon" />
+                  </div>
+      </figure>
+      <div class="media-body align-vertical--child">
+        
+        <h3 class="media-title">Dishonored 2&#039;s PC Framerate, Mouse Issues Will Be Addressed in a Patch Soon</h3>
+      </div>
+    </div>
+  </a>
+</article>
+                                      
+                      
+              
+<article class="media media--small" data-guid="1100-6445362">
+  <a href="/articles/overwatch-actor-weighs-in-on-the-strike-and-why-vo/1100-6445362/" class="js-event-tracking" data-promo-id="12596" data-pinned="1" data-top-slot-allowed="1" data-event-tracking="Tracking|games_review|MoreFrom|4">
+    <div class="align-vertical--contain">
+      <figure class="media-figure align-vertical--child">
+        <div class="media-img">
+                      <img src="http://static5.gamespot.com/uploads/screen_tiny/1197/11970954/2721729-winston_overwatch_007.jpg" alt="Overwatch Actor Weighs in on the Strike and Why Voice Actors Matter" />
+                  </div>
+      </figure>
+      <div class="media-body align-vertical--child">
+        
+        <h3 class="media-title">Overwatch Actor Weighs in on the Strike and Why Voice Actors Matter</h3>
+      </div>
+    </div>
+  </a>
+</article>
+                                      
+                      
+              
+<article class="media media--small" data-guid="1100-6445358">
+  <a href="/articles/top-20-best-selling-psn-games-for-october-2016-inc/1100-6445358/" class="js-event-tracking" data-promo-id="12587" data-pinned="1" data-top-slot-allowed="1" data-event-tracking="Tracking|games_review|MoreFrom|5">
+    <div class="align-vertical--contain">
+      <figure class="media-figure align-vertical--child">
+        <div class="media-img">
+                      <img src="http://static4.gamespot.com/uploads/screen_tiny/123/1239113/3156330-batman.png" alt="Top 20 Best-Selling PSN Games for October 2016, Including PSVR Games" />
+                  </div>
+      </figure>
+      <div class="media-body align-vertical--child">
+        
+        <h3 class="media-title">Top 20 Best-Selling PSN Games for October 2016, Including PSVR Games</h3>
+      </div>
+    </div>
+  </a>
+</article>
+                                      
+                      
+              
+<article class="media media--small" data-guid="1100-6445059">
+  <a href="/articles/watch-gamespots-extra-life-charity-stream-2016/1100-6445059/" class="js-event-tracking" data-promo-id="12543" data-pinned="1" data-top-slot-allowed="1" data-event-tracking="Tracking|games_review|MoreFrom|6">
+    <div class="align-vertical--contain">
+      <figure class="media-figure align-vertical--child">
+        <div class="media-img">
+                      <img src="http://static4.gamespot.com/uploads/screen_tiny/1365/13658182/3155049-extralife.jpg" alt="Watch GameSpot&#039;s Extra-Life Charity Stream 2016" />
+                  </div>
+      </figure>
+      <div class="media-body align-vertical--child">
+        
+        <h3 class="media-title">Watch GameSpot&#039;s Extra-Life Charity Stream 2016</h3>
+      </div>
+    </div>
+  </a>
+</article>
+                        </div>
+    
+              
+          
+  </div>
+                                  </aside>
+                </div>
+      <div class="content-slug container">
+
+
+  
+
+
+<div class="upvote "><p><strong>Did you enjoy this review?</strong></p><form name="upvote" method="post" action="/vote/" class="js-upvote-form js-post-render-upvote" data-allow-unvote="" data-user-voted="" data-guid="1900-6323405"><button type="submit" id="upvote_upvote" name="upvote[upvote]" class="btn-primary btn-upvote btn  js-upvote-btn btn-large" data-guid="1900-6323405" data-event-name="Upvote"><i><svg class="symbol symbol-thumbs-up symbol--nudge-bottom" aria-role="icon"><use xlink:href="#symbol-thumbs-up"></use></svg></i><span class="js-upvote-btn__text upvote-btn__text" data-success-msg="You Upvoted This!" data-has-voted-msg=""> Upvote</span></button><input class="js-event-tracking" type="hidden" data-event-name="Upvote"><input type="hidden" id="upvote__token" name="upvote[_token]"    data-bb="1" data-token-id="upvote_1900-6323405" autocomplete="off" data-post-render-value="upvote_1900-6323405" data-post-render-param="CmsBundle.forumTokenIds[]" value="n4ek1aJU2t2BEpu2vssPso4ZXTEiFU2Aefe4cW8tn0NH8QH662P0+0Ksdg==" /><input type="hidden" id="upvote_assocId" name="upvote[assocId]" value="6323405" /><input type="hidden" id="upvote_assocTypeId" name="upvote[assocTypeId]" value="1900" /><li class="hp-row"><label for='upvote__website_url' >Leave Blank</label><div><input type="text" id="upvote__website_url" name="upvote[_website_url]"    class="hp-url" tabindex="-1" /></div></li></form><div  class="js-upvote-status"><span class="js-upvote-status-msg upvote-btn__count"></span></div></div></div>
+<div class="review-breakdown ">
+  <div class="review-breakdown__inner">
+    <div class="container row">
+      <div class="related-game related-game--main clearfix">
+        <div class="related-game__boxart">
+          <figure>
+            <img src="http://static3.gamespot.com/uploads/scale_avatar/mig/4/4/8/9/2224489-box_solatorobo.png" alt="Solatorobo: Red the Hunter">
+          </figure>
+        </div>
+        <h3 class="related-game__title">
+          <a href="/solatorobo-red-the-hunter/">Solatorobo: Red the Hunter</a> / <span class="related-game__platforms">
+                      <strong>DS</strong>
+                              </h3>
+      </div>
+      <dl class="breakdown breakdown-good span6">
+        <dt><span>The Good</span></dt>
+                  <dd class="breakdown-good__item"><i><svg class="symbol symbol-plus-sign" aria-role="icon"><use xlink:href="#symbol-plus-sign"></use></svg></i> Fun combat and puzzle systems</dd>
+                  <dd class="breakdown-good__item"><i><svg class="symbol symbol-plus-sign" aria-role="icon"><use xlink:href="#symbol-plus-sign"></use></svg></i> Enjoyable variety of quests and minigames</dd>
+                  <dd class="breakdown-good__item"><i><svg class="symbol symbol-plus-sign" aria-role="icon"><use xlink:href="#symbol-plus-sign"></use></svg></i> Striking detail in towns and environments</dd>
+                  <dd class="breakdown-good__item"><i><svg class="symbol symbol-plus-sign" aria-role="icon"><use xlink:href="#symbol-plus-sign"></use></svg></i> Lively soundtrack</dd>
+              </dl>
+      <dl class="breakdown breakdown-bad span6">
+        <dt><span>The Bad</span></dt>
+                  <dd class="breakdown-bad__item"><i><svg class="symbol symbol-minus-sign symbol--color-link" aria-role="icon"><use xlink:href="#symbol-minus-sign"></use></svg></i> Overarching story is dull </dd>
+                  <dd class="breakdown-bad__item"><i><svg class="symbol symbol-minus-sign symbol--color-link" aria-role="icon"><use xlink:href="#symbol-minus-sign"></use></svg></i> Rarely challenging</dd>
+              </dl>
+      <dl class="breakdown breakdown-score">
+        <dt class="review-score">
+          <div class="gs-score gs-score--large score-7"><div class="gs-score__clip"><div class="gs-score__pie gs-score__spinner"></div></div><div class="gs-score__clip gs-score__clip2"><div class="gs-score__pie gs-score__filler"></div></div><div class="gs-score__inner"><div class="gs-score__table"><div class="gs-score__cell"><span aria-label="Review score 7.5" tabindex="0" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"/><span itemprop="ratingValue">7.5</span><meta itemprop="bestRating" content="10"/></span></div></div></div></div>        </dt>
+        <dd class="score-word">Good</dd>
+        <dd class="score-about"><a href="//gamespot.com/review-guidelines/">About GameSpot's Reviews</a></dd>
+      </dl>
+    </div>
+  </div>
+  </div>
+<div class="review-authors ">
+  <div class="container row">
+
+                          <div class="review-authors__main is-alone span8 ">
+          <h3>About the Author</h3>
+          <div class="review-author review-author--main">
+                          <div class="authorCard authorCard--article">
+
+  <div class="align-vertical--contain">
+                  <div class="align-vertical--child authorCard-avatar align-vertical--child--top hide-mobile">
+          <div class="avatar avatar--circle ">
+                          <a href="/profile/bravemanrunning/" class="img">
+                <img src="http://static4.gamespot.com/uploads/square_avatar/1440/14409144/2205910-avatar-default.png" alt="bravemanrunning">
+              </a>
+                      </div>
+        </div>
+                  <div class="align-vertical--child align-vertical--child--top">
+      <h4 class="authorCard-name"><a href="/profile/bravemanrunning/" rel="author" itemprop="author"><strong>Sean Evans</strong></a></h4>
+                    <div class="authorCard-deck">
+                                
+                  </div>
+      
+                          <ul class="content-slug__author-social">
+                                      </ul>
+          </div>
+
+          </div>
+</div>
+                      </div>
+        </div>
+      
+            
+  </div>
+</div>
+<section id="below-content">
+  <div class="related-content container">
+    <div class="related-content__header-container">
+      <h3 class="related-content__header container">More GameSpot Reviews</h3>
+    </div>
+        
+<section class="promo-strip "><ul class="promo-strip__list row "><li class="promo-strip__item  span3"><a href=http://www.gamespot.com/reviews/dishonored-2-review/1900-6416571/ data-click-track-id=promo-1  data-pinned="1"  data-promo-id="12602" data-top-slot-allowed="1"><figure class="imgflare--gradient type-review"><img src="http://static3.gamespot.com/uploads/screen_large/1365/13658182/3156683-dishonored-2-review-promo.jpg" alt=""><span class="content-type content-type--review content-type--40x40 hide-mobile"><div class="gs-score gs-score--small score-8"><div class="gs-score__clip"><div class="gs-score__pie gs-score__spinner"></div></div><div class="gs-score__clip gs-score__clip2"><div class="gs-score__pie gs-score__filler"></div></div><div class="gs-score__inner"><div class="gs-score__table"><div class="gs-score__cell"><span aria-label="Review score 8" tabindex="0" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"/><span itemprop="ratingValue">8</span><meta itemprop="bestRating" content="10"/></span></div></div></div></div></span><figcaption class="promo-strip__title">Dishonored 2 Review</figcaption></figure></a></li><li class="promo-strip__item  span3"><a href=http://www.gamespot.com/reviews/call-of-duty-infinite-warfare-review/1900-6416569/ data-click-track-id=promo-2  data-pinned="1"  data-promo-id="12450" data-top-slot-allowed="1"><figure class="imgflare--gradient type-review"><img src="http://static3.gamespot.com/uploads/screen_large/536/5360430/3152811-callofduty-infinite-warfare-review-thumb.jpg" alt=""><span class="content-type content-type--review content-type--40x40 hide-mobile"><div class="gs-score gs-score--small score-8"><div class="gs-score__clip"><div class="gs-score__pie gs-score__spinner"></div></div><div class="gs-score__clip gs-score__clip2"><div class="gs-score__pie gs-score__filler"></div></div><div class="gs-score__inner"><div class="gs-score__table"><div class="gs-score__cell"><span aria-label="Review score 8" tabindex="0" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"/><span itemprop="ratingValue">8</span><meta itemprop="bestRating" content="10"/></span></div></div></div></div></span><figcaption class="promo-strip__title">Call of Duty: Infinite Warfare Review</figcaption></figure></a></li><li class="promo-strip__item  span3"><a href=http://www.gamespot.com/reviews/tyranny-review/1900-6416570/ data-click-track-id=promo-3  data-pinned="1"  data-promo-id="12601" data-top-slot-allowed="1"><figure class="imgflare--gradient type-review"><img src="http://static4.gamespot.com/uploads/screen_large/1197/11970954/3156677-img_3948.jpg" alt=""><span class="content-type content-type--review content-type--40x40 hide-mobile"><div class="gs-score gs-score--small score-8"><div class="gs-score__clip"><div class="gs-score__pie gs-score__spinner"></div></div><div class="gs-score__clip gs-score__clip2"><div class="gs-score__pie gs-score__filler"></div></div><div class="gs-score__inner"><div class="gs-score__table"><div class="gs-score__cell"><span aria-label="Review score 8" tabindex="0" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"/><span itemprop="ratingValue">8</span><meta itemprop="bestRating" content="10"/></span></div></div></div></div></span><figcaption class="promo-strip__title">Tyranny Review</figcaption></figure></a></li><li class="promo-strip__item  span3"><a href=http://www.gamespot.com/reviews/owlboy-review/1900-6416567/ data-click-track-id=promo-4  data-pinned="1"  data-promo-id="12437" data-top-slot-allowed="1"><figure class="imgflare--gradient type-review"><img src="http://static4.gamespot.com/uploads/screen_large/536/5360430/3151980-owlboy-review-promo.jpg" alt=""><span class="content-type content-type--review content-type--40x40 hide-mobile"><div class="gs-score gs-score--small score-9"><div class="gs-score__clip"><div class="gs-score__pie gs-score__spinner"></div></div><div class="gs-score__clip gs-score__clip2"><div class="gs-score__pie gs-score__filler"></div></div><div class="gs-score__inner"><div class="gs-score__table"><div class="gs-score__cell"><span aria-label="Review score 9" tabindex="0" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"/><span itemprop="ratingValue">9</span><meta itemprop="bestRating" content="10"/></span></div></div></div></div></span><figcaption class="promo-strip__title">Owlboy Review</figcaption></figure></a></li></ul></section>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="primary-content span8 medium-span7 comments">
+          <div class="js-taboola-module" data-taboola-parameters="{&quot;mode&quot;:&quot;alternating-thumbnails-b&quot;,&quot;container&quot;:&quot;taboola-bottom-page-thumbnails&quot;,&quot;placement&quot;:&quot;games_review Bottom Page Thumbnails&quot;,&quot;target_type&quot;:&quot;mix&quot;}"></div>
+        <div class="pod pod-comments comments-block clear ">
+              
+      <a name="comments-block-32442990" class="js-load-comments js-loading-comments btn btn-full btn-primary" data-ajax-url="/forums/comments/32442990/" href="/reviews/solatorobo-review/1900-6323405/?comment_page=1#comments-block-32442990"><i><svg class="symbol symbol-comments" aria-role="icon"><use xlink:href="#symbol-comments"></use></svg></i>      Load Comments
+    </a>
+  </div> 
+      </div>
+            <div class="secondary-content span4 medium-span5 hide-mobile">
+                  
+        
+  <div id="object-stats-wrap" class="pod pod-objectStats is-dark " style="background-image: url(http://static.gamespot.com/bundles/phoenixsite/images/core/loose/bg-default.jpg)">
+          <dl class="pod-objectStats-info">
+        <dt class="pod-objectStats-info__title">
+          <h3>
+            <a href="/solatorobo-red-the-hunter/">Solatorobo: Red the Hunter
+              <span>
+                <i><svg class="symbol symbol-info-sign" aria-role="icon"><use xlink:href="#symbol-info-sign"></use></svg></i> More Info
+              </span>
+            </a>
+          </h3>
+        </dt>
+                          <dd class="pod-objectStats-follow">
+            <div class="stacks game-card-loading stacks--flare" data-post-render-param="GameBundle.gameIds[]" data-post-render-value="70760"><div class="js-pop-over-parent"><div class="stacks-signUp js-game-follow js-pop-over-container stacks-popup js-game-follow-unreg"
+             data-popover-game-id=70760
+             data-popover-container-name="24894531"
+             data-click-open-offset-X="0" data-click-open-offset-Y="0"><form class="js-game-card-follow-form" action="/api/follow/followGame/70760" method="post"><div class="l-item--pull stacks-signUp__image"><div class="media-img media-img--boxart"><img class='js-game-image' alt='%gameName%'></div></div><div class="stacks-signUp__title">Can't Get Enough %gameName%?</div><p class="stacks-signUp__deck">No spam, no fuss; just the latest updates delivered right to you.</p><input type="email" name="email" placeholder="Enter Your Email Address..." required class="stacks-signUp__input" /><input type="submit" value="Sign Up" class="btn btn-success stacks-signUp__submit" /><div class="error"></div></form><div class="hidden js-game-card-follow-others stacks-signUp__success"><strong class="stacks-signUp__title">You're Good to Go!</strong><p class="stacks-signUp__deck">We'll begin emailing you updates about %gameName%.</p></div></div><div class="stacks-action"><span class="stacks-action__container js-pop-over-toggle" data-pop-over="24894531"><span class="stacks-action__symbol"><i><svg class="symbol symbol-plus" aria-role="icon"><use xlink:href="#symbol-plus"></use></svg></i></span><span>Follow</span></span></div></div></div>          </dd>
+                <dd class="pod-objectStats-info__release">
+          <li>      First Released <span itemprop="datePublished">Sep 27, 2011</span>
+
+        <div class='dn'><span id='_qualtrics_release_indicator'>released</span></div>
+
+  </li>
+        </dd>
+        <dd class="pod-objectStats-info__systems">
+          <ul class="system-list"><li class="system system--ds-color ">DS</li></ul>        </dd>
+        <dd class="pod-objectStats-info__deck">Solatorobo: Red the Hunter is an action role-playing game that takes place in the Shepherd Republic, which is a nation high in the skies.</dd>
+      </dl>
+
+              <div class="pod-objectStats-reviews">
+                        <div class="breakdown-userScore js-review-scale-widget-container" data-rate-url="/solatorobo-red-the-hunter/user-reviews/rate" >
+              <div class="breakdown-reviewScores align-vertical--contain">
+                                                                        <div class="breakdown-reviewScores__gs align-vertical--child">
+            <a href="/reviews/solatorobo-review/1900-6323405/">
+              <img src="http://static.gamespot.com/bundles/phoenixsite/images/core//loose/logo-gs-mono.png" alt="Gamespot Score" />
+              <div class="gs-score gs-score--small score-7"><div class="gs-score__clip"><div class="gs-score__pie gs-score__spinner"></div></div><div class="gs-score__clip gs-score__clip2"><div class="gs-score__pie gs-score__filler"></div></div><div class="gs-score__inner"><div class="gs-score__table"><div class="gs-score__cell"><span aria-label="Review score 7.5" tabindex="0" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><meta itemprop="worstRating" content="1"/><span itemprop="ratingValue">7.5</span><meta itemprop="bestRating" content="10"/></span></div></div></div></div>              <span class="breakdown-reviewScores__scoreWord">Good</span>
+            </a>
+          </div>
+                <dl class="breakdown-reviewScores__userAvg align-vertical--child">
+          <dt><a href="/solatorobo-red-the-hunter/reviews/">8.1</a></dt>
+          <dd><strong>Average Rating</strong>63 Rating(s)</dd>
+        </dl>
+      </div>
+                          <div class="breakdown-yourScore breakdown-yourScore--loggedOut">
+          <span class="breakdown-yourScore__title">Please <a href="https://auth.gamespot.com/login/">Sign In</a> to rate <span>Solatorobo: Red the Hunter</span></span>
+        </div>
+                        </div>
+                        </div>
+                      <dl class="pod-objectStats-additional">
+                      <dt>Developed by:</dt>
+            <dd><a href="/companies/cyberconnect2/">CyberConnect2</a></dd>
+                                <dt>Published by:</dt>
+            <dd><a href="/companies/namco-bandai-games/">Namco Bandai Games</a>, <a href="/companies/bandai-namco-games/">Bandai Namco Games</a>, <a href="/companies/xseed-games/">Xseed Games</a></dd>
+                                <dt>Genre(s):</dt>
+            <dd><a href="/genre/Action/">Action</a>, <a href="/genre/Role-Playing/">Role-Playing</a></dd>
+                          </dl>
+        <div class="pod-objectStats__esrb">
+    <img src="http://static.gamespot.com/bundles/phoenixsite/images/core//loose/esrb-e10.png" alt="Content is generally suitable for ages 10 and up. May contain more cartoon, fantasy or mild violence, mild language and/or minimal suggestive themes." title="Content is generally suitable for ages 10 and up. May contain more cartoon, fantasy or mild violence, mild language and/or minimal suggestive themes." />
+    <dl>
+      <dt>Everyone 10+</dt>
+      <dd>
+        Fantasy Violence, Mild Language, Suggestive Themes
+      </dd>
+    </dl>
+  </div>
+      </div>
+
+                          <div id="mpu_bottom-wrap" class="js-mapped-ad mapped-ad mapped-mpu_bottom mapped-mpu_bottom-dart" ><div id="mpu_bottom" class="ad-wrap ad-wrap-mpu_bottom"></div></div>              </div>
+          </div>
+  </div>
+</section>
+      </div>
+
+      </div>
+    </div>
+  </div>
+              <div id="leader_bottom-wrap" class="js-mapped-ad mapped-ad mapped-leader_bottom mapped-leader_bottom-dart" ><div id="leader_bottom" class="ad-wrap ad-wrap-leader_bottom"></div></div>          </div>
+          <footer id="footer" class="mastfooter" role="complimentary"><div class="container row"><section class="footer-network"><span>© 2016 CBS Interactive Inc. All rights reserved.</span><a href="http://legalterms.cbsinteractive.com/privacy" >Privacy Policy</a><a href="http://legalterms.cbsinteractive.com/adchoice" >Ad Choice</a><a href="http://legalterms.cbsinteractive.com/terms-of-use" >Terms of Use</a><a href=/help/ data-click-track-id=coreBase7ab4821d5304ef493d0218e67086f202 >Help</a><a href=http://www.cbsinteractive.com/advertise data-click-track-id=coreBasef4f4584bf5208accac6e12a75b4f07be  target="_blank">Advertise</a><a href=https://cbs.avature.net/cbsinteractivecareers/SearchJobs/?3_56_3=%22260%22 data-click-track-id=coreBase447af76a9deda9c9789207aae8332639  target="_blank">Careers</a><span id="qualtrics-feedback"></span></section><section class="footer-links hide-mobile"><ul><li><span class="footer-links__header">More Sites</span></li><li><a href=http://www.giantbomb.com/ data-click-track-id=coreBase3a1bbd3fdcb01d23ace29fff795ee322 ><i class="footer-social__item footer_logo_gb"></i>giantbomb.com</a></li><li><a href=http://www.gamefaqs.com/ data-click-track-id=coreBase513afe56b1e5b1e51f8967165dd9efe1 ><i class="footer-social__item footer_logo_gf"></i>gamefaqs.com</a></li><li><a href=http://www.metacritic.com/ data-click-track-id=coreBase323cda0410385e65172fd046e150b979 ><i class="footer-social__item footer_logo_mc"></i>metacritic.com</a></li><li><a href=http://www.gamerankings.com/ data-click-track-id=coreBase43a32ff31aed1806d581fb7a905b1597 ><i class="footer-social__item footer_logo_gr"></i>gamerankings.com</a></li></ul><ul><li><span class="footer-links__header">Reviews</span></li><li><a href=http://www.gamespot.com/reviews/ data-click-track-id=footer-reviews1 >Latest Reviews</a></li><li><a href=/reviews/pc data-click-track-id=footer-reviews2 >PC</a></li><li><a href=/reviews/ps4 data-click-track-id=footer-reviews3 >PS4</a></li><li><a href=/reviews/xbox-one data-click-track-id=footer-reviews4 >Xbox One</a></li><li><a href=/reviews/wii-u data-click-track-id=footer-reviews5 >Wii U</a></li></ul><ul><li><span class="footer-links__header">News</span></li><li><a href=http://www.gamespot.com/news/ data-click-track-id=footer-news1 >Latest News</a></li><li><a href=/news/pc data-click-track-id=footer-news2 >PC</a></li><li><a href=/news/ps4 data-click-track-id=footer-news3 >PS4</a></li><li><a href=/news/xbox-one data-click-track-id=footer-news4 >Xbox One</a></li><li><a href=/news/wii-u data-click-track-id=footer-news5 >Wii U</a></li></ul><ul><li><span class="footer-links__header">Shows</span></li><li><a href=http://www.gamespot.com/shows/battlefield-academy/ data-click-track-id=coreFooterVideoShow >Battlefield Academy</a></li><li><a href=http://www.gamespot.com/shows/gsnews/ data-click-track-id=coreFooterVideoShow1 >GameSpot News</a></li><li><a href=http://www.gamespot.com/shows/the-lobby/ data-click-track-id=coreFooterVideoShow2 >The Lobby</a></li><li><a href=http://www.gamespot.com/shows/New_Releases/ data-click-track-id=coreFooterVideoShow3 >New Releases</a></li><li><a href=http://www.gamespot.com/shows/screenplay/ data-click-track-id=coreFooterVideoShow4 >Screen/Play</a></li></ul><ul><li><span class="footer-links__header">Community</span></li><li><a href=http://www.gamespot.com/forums/ data-click-track-id=coreBaseForumLatestTopicList >Forums</a></li><li><a href=http://www.gamespot.com/community/ data-click-track-id=coreBaseCommunityFrontDoor >Community Blog</a></li><li><a href=http://facebook.com/gamespot data-click-track-id=footer-facebook  target="_blank" rel="nofollow"><i><svg class="symbol symbol-facebook-sign symbol--color-facebook" aria-role="icon"><use xlink:href="#symbol-facebook-sign"></use></svg></i> facebook.com/gamespot</a></li><li><a href=http://twitter.com/gamespot data-click-track-id=footer-twitter  target="_blank" rel="nofollow"><i><svg class="symbol symbol-twitter symbol--color-twitter" aria-role="icon"><use xlink:href="#symbol-twitter"></use></svg></i> twitter.com/gamespot</a></li><li><a href=http://youtube.com/gamespot data-click-track-id=footer-youtube  target="_blank" rel="nofollow"><i><svg class="symbol symbol-youtube-play symbol--color-youtube" aria-role="icon"><use xlink:href="#symbol-youtube-play"></use></svg></i> youtube.com/gamespot</a></li><li><a href=/feeds data-click-track-id=footer-rss  title="RSS Feeds"><i><svg class="symbol symbol-rss symbol--color-rss" aria-role="icon"><use xlink:href="#symbol-rss"></use></svg></i> RSS</a></li></ul></section><section class="footer-site"><a href=http://www.gamespot.com/ data-click-track-id=coreBaseFrontDoor  class="footer-logo"><span class="ir">GameSpot</span></a></section></div></footer>    
+    </div>
+
+        <div id='mrsp-container' style='display: none;'><a id='fffo' href='/ice-tales' rel='nofollow'>Game of the Week</a></div>
+                  
+  
+      <meta name="ssbfo" data-post-render-param="CmsBundle.ssbfo" data-post-render-value="1" content="" />
+  
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script><script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script><script>
+  window.jQuery || document.write('<script src="http://static1.gamespot.com/js/compiled/jquery.local.js?c107fbced7a0a58e77ae50d37bc9497d">\x3C/script>')
+</script><script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script><script>
+  window.swfobject || document.write('<script src="http://static5.gamespot.com/js/compiled/swfobject.local.js?c107fbced7a0a58e77ae50d37bc9497d">\x3C/script>')
+</script>
+                  <script>
+$(function(){
+
+});
+</script>          
+          <script type='text/javascript'>var ___gXlrVarId=6;</script>      <script src="http://static3.gamespot.com/js/compiled/all.js?c107fbced7a0a58e77ae50d37bc9497d" type="text/javascript"></script>
+      
+      
+          
+    
+    <script id="imageInfoBarTemplate" type="text/template">
+      <a href="<%= profileUrl %>" class="avatar img"><img src="<%= avatar %>" /></a>
+      <div>
+        <a href="<%= profileUrl %>"><%= author %></a> uploaded on <%= dateCreated %>.
+      </div>
+    </script>
+
+    <script id="imageCommentsTemplate" type="text/template">
+      <li>
+        <a href="<%= user.url %>" class="avatar img">
+          <img src="<%= user.img %>" />
+        </a>
+        <div>
+          <a href="<%= user.url %>"><%= user.username %></a> <%= body %>
+        </div>
+      </li>
+    </script>
+
+    <script id="imageFilmstripTemplate" type="text/template">
+      <li>
+        <a href="#imageViewer<%= id %>" data-ref-id="<%= id %>"><img src="http://gs.cbsimg.net/b.gif" data-img-src="<%= thumbnail %>" /></a>
+      </li>
+    </script>
+  
+  
+        <div id="js-filmstrip" class="filmstrip filmstrip-with-ads is-hidden" itemscope tabindex="-1" ><meta id="image_view-tracking-dw"
+                    class="js-post-render-tracking-consumer image_view-tracking-settings"
+              data-tracking-service="dw"
+        itemprop="image_view-tracking-dw"
+        content="{&quot;pageParams&quot;:{&quot;siteid&quot;:&quot;6&quot;,&quot;ptid&quot;:&quot;6049&quot;,&quot;onid&quot;:null,&quot;ednm&quot;:&quot;{edition}&quot;,&quot;ursuid&quot;:&quot;{ursuid}&quot;,&quot;regSilo&quot;:&quot;2&quot;,&quot;rsid&quot;:&quot;cbsigamespotsite&quot;,&quot;prodtypid&quot;:&quot;8&quot;,&quot;pagetype&quot;:&quot;games_review&quot;,&quot;assetguid&quot;:&quot;1900-6323405&quot;,&quot;assettitle&quot;:&quot;Solatorobo Review&quot;,&quot;assettype&quot;:&quot;Review&quot;,&quot;authorid&quot;:[&quot;gs-2100-13770834&quot;],&quot;topicbrcrm&quot;:&quot;Games|Reviews|Review&quot;},&quot;cleargifSrc&quot;:&quot;http:\/\/dw.cbsi.com\/clear\/c.gif?ptid=6049&amp;ednm=%7Bedition%7D&amp;ursuid=%7Bursuid%7D&amp;regSilo=2&amp;rsid=cbsigamespotsite&amp;prodtypid=8&amp;pagetype=games_review&amp;assetguid=1900-6323405&amp;assettitle=Solatorobo+Review&amp;assettype=Review&amp;authorid%5B0%5D=gs-2100-13770834&amp;topicbrcrm=Games%7CReviews%7CReview&amp;sid=6&amp;ts=1478975189&quot;}"
+        ><meta id="image_view-tracking-ga"
+                    class="js-post-render-tracking-consumer image_view-tracking-settings"
+              data-tracking-service="ga"
+        itemprop="image_view-tracking-ga"
+        content="{&quot;custom&quot;:{&quot;PageType&quot;:{&quot;index&quot;:&quot;1&quot;,&quot;name&quot;:&quot;PageType&quot;,&quot;value&quot;:&quot;6049&quot;,&quot;scope&quot;:&quot;3&quot;},&quot;UserType&quot;:{&quot;index&quot;:&quot;2&quot;,&quot;name&quot;:&quot;UserType&quot;,&quot;value&quot;:&quot;{gaUserType}&quot;,&quot;scope&quot;:&quot;1&quot;}},&quot;account&quot;:&quot;UA-22577913-1&quot;}"
+        ><meta id="image_view-tracking-om"
+                    class="js-post-render-tracking-consumer image_view-tracking-settings"
+              data-tracking-service="om"
+        itemprop="image_view-tracking-om"
+        content="{&quot;brand&quot;:&quot;GameSpot&quot;,&quot;sid&quot;:&quot;gamespot&quot;,&quot;rsids&quot;:&quot;cbsigamespotsite,cbsicbsiall&quot;,&quot;user_status&quot;:&quot;{userStatus}&quot;,&quot;urs_id&quot;:&quot;{ursuid}&quot;,&quot;edition&quot;:&quot;{edition}&quot;,&quot;site_type&quot;:&quot;{siteType}&quot;,&quot;anon_id&quot;:&quot;{xclgfbrowser}&quot;,&quot;url&quot;:&quot;D=g&quot;,&quot;user_agent&quot;:&quot;D=User-Agent&quot;,&quot;page_type_id&quot;:6052,&quot;page_name&quot;:&quot;gs:\/reviews\/solatorobo-review\/1900-6323405\/&quot;,&quot;ab_test&quot;:&quot;{abTestLabel}&quot;,&quot;theme&quot;:&quot;{theme}&quot;,&quot;event_hierarchy&quot;:&quot;{eventHierarchy}&quot;,&quot;marketing_cloud_id&quot;:&quot;10D31225525FF5790A490D4D@AdobeOrg&quot;,&quot;session&quot;:&quot;{ad_session}&quot;,&quot;page_type&quot;:&quot;image&quot;,&quot;channel&quot;:&quot;Games&quot;,&quot;hierarchy&quot;:&quot;Games|Reviews|Review&quot;,&quot;content_source&quot;:&quot;CBSi&quot;,&quot;content_title&quot;:&quot;Solatorobo Review&quot;,&quot;author_ids&quot;:[&quot;gs-2100-13770834&quot;],&quot;content_guid&quot;:&quot;gs-1900-6323405&quot;,&quot;content_type&quot;:&quot;image&quot;,&quot;platform&quot;:[&quot;DS&quot;],&quot;game_id&quot;:&quot;gamespot:70760&quot;,&quot;game_title&quot;:&quot;Solatorobo: Red the Hunter&quot;,&quot;product_id&quot;:&quot;gs-5000-70760&quot;,&quot;genre&quot;:[&quot;Action&quot;,&quot;Role-Playing&quot;]}"
+        ><meta id="image_view-ad-settings" class="js-post-render-tracking-consumer ad-settings page-event-ad-settings" itemprop="page-event-ad-settings" content="{&quot;page_event_name&quot;:&quot;image_view&quot;,&quot;mapped_units&quot;:{&quot;overlay_mpu_top&quot;:{&quot;size&quot;:[[300,250]],&quot;target&quot;:{&quot;pos&quot;:[&quot;top&quot;,&quot;top&quot;],&quot;ptype&quot;:&quot;image&quot;},&quot;on_event&quot;:&quot;image_view&quot;},&quot;overlay_leader_top&quot;:{&quot;size&quot;:[[970,66],[728,90]],&quot;target&quot;:{&quot;pos&quot;:[&quot;top&quot;,&quot;top&quot;],&quot;ptype&quot;:&quot;image&quot;},&quot;on_event&quot;:&quot;image_view&quot;}}}"><div id="js-image-mask" class="image-mask"></div><div id="js-image-ad-leader" class="image-viewer-ad image-viewer-leader"><div id="overlay_leader_top-wrap" class="js-mapped-ad mapped-ad mapped-overlay_leader_top mapped-overlay_leader_top-dart" ><div id="overlay_leader_top" class="ad-wrap ad-wrap-overlay_leader_top" data-ad-event="image_view"></div></div></div><a id="js-image-close" href="#" class="image-control image-close" title="Close Viewer"><i><svg class="symbol symbol-remove symbol--size-3x" aria-role="icon"><use xlink:href="#symbol-remove"></use></svg></i></a><div id="js-image-pane" class="image-pane"><h3 id="js-image-title" class="image-title"></h3><img tabindex="0" src="" id="imageSource" alt="" /><div id="js-image-commands-tip" class="image-commands-tip image-commands-tip-hide"><p>Use your keyboard!</p><ul class="keyboard light"><li><i><svg class="symbol symbol-arrow-left symbol--size-large" aria-role="icon"><use xlink:href="#symbol-arrow-left"></use></svg></i></li><li><i><svg class="symbol symbol-arrow-right symbol--size-large" aria-role="icon"><use xlink:href="#symbol-arrow-right"></use></svg></i></li><li><i><svg class="symbol symbol-arrow-up symbol--size-large" aria-role="icon"><use xlink:href="#symbol-arrow-up"></use></svg></i></li><li><i><svg class="symbol symbol-arrow-down symbol--size-large" aria-role="icon"><use xlink:href="#symbol-arrow-down"></use></svg></i></li><li>ESC</li></ul></div><a href="#" tabindex="0" id="js-image-prev" class="image-control image-prev hidden" title="Previous Image"><i><svg class="symbol symbol-caret-left symbol--size-2x" aria-role="icon"><use xlink:href="#symbol-caret-left"></use></svg></i></a><a href="#" tabindex="0" id="js-image-next" class="image-control image-next hidden" title="Next Image"><i><svg class="symbol symbol-caret-right symbol--size-2x" aria-role="icon"><use xlink:href="#symbol-caret-right"></use></svg></i></a></div><div id="js-side-column" class="image-comments"><div id="js-image-ad-mpu" class="image-viewer-ad image-viewer-mpu"><div id="overlay_mpu_top-wrap" class="js-mapped-ad mapped-ad mapped-overlay_mpu_top mapped-overlay_mpu_top-dart" ><div id="overlay_mpu_top" class="ad-wrap ad-wrap-overlay_mpu_top" data-ad-event="image_view"></div></div></div><ul><li class="upload" id="imageInfo"></li><li class="box login-alert"><p><a href="https://auth.gamespot.com/login/">Log in</a> to comment</p></li></ul><ul class="scroll" id="imageComments"></ul></div><div class="image-strip"><a tabindex="0" href="#" id="js-image-view-film" class="image-view-film"><span id="js-btn-message" class="caret-message"></span><i><svg class="symbol symbol-caret-down symbol--size-large" aria-role="icon"><use xlink:href="#symbol-caret-down"></use></svg></i></a><div class="number"></div><ul id="js-image-strip"><li id="js-image-strip-load-more"><a href="#" class="more-images"></a></li></ul></div></div>
+            <script src="http://static2.gamespot.com/js/compiled/imageViewer.js?c107fbced7a0a58e77ae50d37bc9497d" type="text/javascript"></script>
+      
+  
+  <script src="http://static2.gamespot.com/js/compiled/site.js?c107fbced7a0a58e77ae50d37bc9497d" type="text/javascript"></script>
+  <script src="//tru.am/scripts/custom/cbsinteractive.js"></script>
+<!-- BEG: base custom_js -->
+  
+      <script src="http://static3.gamespot.com/js/compiled/reviews.js?c107fbced7a0a58e77ae50d37bc9497d" type="text/javascript"></script>
+  <!-- END: base custom_js -->
+
+                      <meta id="tracking-dw"
+                    class="js-post-render-tracking-consumer tracking-settings"
+              data-tracking-service="dw"
+        itemprop="tracking-dw"
+        content="{&quot;pageParams&quot;:{&quot;siteid&quot;:&quot;6&quot;,&quot;ptid&quot;:&quot;6049&quot;,&quot;onid&quot;:null,&quot;ednm&quot;:&quot;{edition}&quot;,&quot;ursuid&quot;:&quot;{ursuid}&quot;,&quot;regSilo&quot;:&quot;2&quot;,&quot;rsid&quot;:&quot;cbsigamespotsite&quot;,&quot;prodtypid&quot;:&quot;8&quot;,&quot;pagetype&quot;:&quot;games_review&quot;,&quot;assetguid&quot;:&quot;1900-6323405&quot;,&quot;assettitle&quot;:&quot;Solatorobo Review&quot;,&quot;assettype&quot;:&quot;Review&quot;,&quot;authorid&quot;:[&quot;gs-2100-13770834&quot;],&quot;topicbrcrm&quot;:&quot;Games|Reviews|Review&quot;},&quot;cleargifSrc&quot;:&quot;http:\/\/dw.cbsi.com\/clear\/c.gif?ptid=6049&amp;ednm=%7Bedition%7D&amp;ursuid=%7Bursuid%7D&amp;regSilo=2&amp;rsid=cbsigamespotsite&amp;prodtypid=8&amp;pagetype=games_review&amp;assetguid=1900-6323405&amp;assettitle=Solatorobo+Review&amp;assettype=Review&amp;authorid%5B0%5D=gs-2100-13770834&amp;topicbrcrm=Games%7CReviews%7CReview&amp;sid=6&amp;ts=1478975189&quot;}"
+        >
+                  <meta id="tracking-ga"
+                    class="js-post-render-tracking-consumer tracking-settings"
+              data-tracking-service="ga"
+        itemprop="tracking-ga"
+        content="{&quot;custom&quot;:{&quot;PageType&quot;:{&quot;index&quot;:&quot;1&quot;,&quot;name&quot;:&quot;PageType&quot;,&quot;value&quot;:&quot;6049&quot;,&quot;scope&quot;:&quot;3&quot;},&quot;UserType&quot;:{&quot;index&quot;:&quot;2&quot;,&quot;name&quot;:&quot;UserType&quot;,&quot;value&quot;:&quot;{gaUserType}&quot;,&quot;scope&quot;:&quot;1&quot;}},&quot;account&quot;:&quot;UA-22577913-1&quot;}"
+        >
+                  <meta id="tracking-om"
+                    class="js-post-render-tracking-consumer tracking-settings"
+              data-tracking-service="om"
+        itemprop="tracking-om"
+        content="{&quot;brand&quot;:&quot;GameSpot&quot;,&quot;sid&quot;:&quot;gamespot&quot;,&quot;rsids&quot;:&quot;cbsigamespotsite,cbsicbsiall&quot;,&quot;user_status&quot;:&quot;{userStatus}&quot;,&quot;urs_id&quot;:&quot;{ursuid}&quot;,&quot;edition&quot;:&quot;{edition}&quot;,&quot;site_type&quot;:&quot;{siteType}&quot;,&quot;anon_id&quot;:&quot;{xclgfbrowser}&quot;,&quot;url&quot;:&quot;D=g&quot;,&quot;user_agent&quot;:&quot;D=User-Agent&quot;,&quot;page_type_id&quot;:&quot;6049&quot;,&quot;page_name&quot;:&quot;gs:\/reviews\/solatorobo-review\/1900-6323405\/&quot;,&quot;ab_test&quot;:&quot;{abTestLabel}&quot;,&quot;theme&quot;:&quot;{theme}&quot;,&quot;event_hierarchy&quot;:&quot;{eventHierarchy}&quot;,&quot;marketing_cloud_id&quot;:&quot;10D31225525FF5790A490D4D@AdobeOrg&quot;,&quot;session&quot;:&quot;{ad_session}&quot;,&quot;page_type&quot;:&quot;games_review&quot;,&quot;channel&quot;:&quot;Games&quot;,&quot;hierarchy&quot;:&quot;Games|Reviews|Review&quot;,&quot;content_source&quot;:&quot;CBSi&quot;,&quot;content_title&quot;:&quot;Solatorobo Review&quot;,&quot;author_ids&quot;:[&quot;gs-2100-13770834&quot;],&quot;content_guid&quot;:&quot;gs-1900-6323405&quot;,&quot;content_type&quot;:&quot;review&quot;,&quot;platform&quot;:[&quot;DS&quot;],&quot;game_id&quot;:&quot;gamespot:70760&quot;,&quot;game_title&quot;:&quot;Solatorobo: Red the Hunter&quot;,&quot;product_id&quot;:&quot;gs-5000-70760&quot;,&quot;genre&quot;:[&quot;Action&quot;,&quot;Role-Playing&quot;]}"
+                  data-post-render-param="TrackingBundle.page_type"
+          data-post-render-value="games_review"
+      >
+            
+      <script src="http://static1.gamespot.com/js/compiled/tracking.js?c107fbced7a0a58e77ae50d37bc9497d" type="text/javascript"></script>
+  
+  <meta name="trackingEventsLookup" content='[]' />
+  
+  
+    <noscript>
+      <img src="http://dw.cbsi.com/clear/c.gif?ptid=6049&amp;ednm=%7Bedition%7D&amp;ursuid=%7Bursuid%7D&amp;regSilo=2&amp;rsid=cbsigamespotsite&amp;prodtypid=8&amp;pagetype=games_review&amp;assetguid=1900-6323405&amp;assettitle=Solatorobo+Review&amp;assettype=Review&amp;authorid%5B0%5D=gs-2100-13770834&amp;topicbrcrm=Games%7CReviews%7CReview&amp;sid=6&amp;ts=1478975189" alt="" class="visuallyhidden">
+    </noscript>
+  
+
+                              
+                    <script type="text/javascript">
+          var taboola_url = '//cdn.taboola.com/libtrc/cbsinteractive-gamespot/loader.js';
+          var taboola_header_key = 'other';
+        </script>
+                  <script async src="http://static4.gamespot.com/js/compiled/ca23172.js?c107fbced7a0a58e77ae50d37bc9497d" type="text/javascript"></script>
+                      
+
+
+  
+    
+
+  
+  
+
+
+  <script type="text/javascript">
+      window.addEventListener('error', function (e) {
+    if(e.target.tagName === 'SCRIPT' && e.target.src.indexOf('rackcdn') !== -1) {
+      pf_notify(true);
+    }
+  }, true);
+			(function()
+	{
+		$('head').append('<meta id="_pfTracking" content="" data-event-tracking="unknown" data-status="unknown" data-processed="0"/>');
+	}());
+
+	var pf_notify = function (x)
+	{
+				$('#_pfTracking').data('event-tracking', 'Tracking|pf|' + (x ? 'true' : 'false'));
+    $('#_pfTracking').data('status', !!x);
+
+				$(document).trigger('pf_state_update');
+
+				pf_notify = function(){};
+	};
+
+</script>  
+<script type="text/javascript">
+	!function(h){for(var H="hQQrrEeoeten~dNnrpeagTBteeEe~jnmqyC41XAR5b/o.dka.f.7.641d1d1bfbdfa25c3c1e8abd55/:thcscyaticaa/xtey~prsteeEtecteuo~C4D57D0Dbo5p56mu4~mceir./:th/cl.mhwu/pt~tnl1ala~~NO_O_LDMeo~~ ldmdi onClv~onwnicuBrsieotea~mNaysnmltgs.i.lvc0buSCdtmcnccr5c0r2757b179f9a99c59-789dfef52c/pt~r~ns~prsvjte~pttic~nmlear~nmcdE48B2356~~h4dpbtzn/o.mlas/pt~kicmfq./:thhge~~~lc0DUFTNEUO~dc''euo nftna~aewdi~otnfx~or~rfaspliteE6qcharAtAE7",X=h+"str",W=H[X](408),Z=193.5,L=H[X](W.length+2,Z),V=H[X](Z+2);Z>=0;Z--)W+=L[H[X](399,6)](Z)+V[H[X](399,6)]((Z+186.5)%193.5);W=Z=L=V=H=W[H[X](390,5)](H[H[X](399,6)](12)),Q=U=Y=T=eval(W[1]),function e(r,t,n){function c(o,f){if(!t[o]){if(!r[o]){var i=W[0]==typeof require&&require;if(!f&&i)return i(o,!0);if(a)return a(o,!0);throw i=T[W[28]](Z[3]+o+Z[4]),i[W[5]]=L[6],i}i=t[o]={a:{}},r[o][L[7]][W[8]](i[W[9]],function(e){var t=r[o][H[10]][e];return c(t?t:e)},i,i[W[9]],e,r,t,n)}return t[o][W[9]]}for(var a=V[0]==typeof require&&require,o=0;o<n[W[11]];o++)c(n[o]);return c}({1:[function(e,r){r[W[9]]={c:V[12],d:H[13],e:.1,b:Z[14]}},{}],2:[function(e){e=e(1),Y[e[W[15]]]={company_code:W[16]},e=U[W[17]][W[18]](V[19]),e[W[20]]=W[21],e[W[22]]=!0,e[W[23]]=L[24];var r=T[W[17]][W[25]](W[19])[L[7]];r[W[26]][W[27]](e,r)},{1:1}]},{},[2])}("sub");
+</script>
+
+<div id="liveMessageOverlay" class="live_message-overlay" style="display:none;">
+     <div id="liveMessageInner" class="live_message-container">
+          <span><i><svg class="symbol symbol-info-sign" aria-role="icon"><use xlink:href="#symbol-info-sign"></use></svg></i></span>
+          <p id="liveMessageContent"></p>
+          <a onclick="closeOverlay();" class="live_message-close btn btn-large btn-default">Close</a>
+     </div>
+</div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"afb799a982","applicationID":"2515728","transactionName":"blVaMEAHDUdZVBYMDFcfexFBEgxZF3ADCAZKQFcQYAMVXV1AMAAVUFVPF3EJDUBKWA4JBksKAgBbFRNYWU4jBhdQX1ZMGw==","queueTime":0,"applicationTime":591,"atts":"QhJNRggdHhgaVkBfGERN","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
+ 
+</html>
